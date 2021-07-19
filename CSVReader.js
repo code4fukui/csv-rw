@@ -1,4 +1,4 @@
-import { LineReader } from "./LineReader.js";
+import { LineReader } from "https://code4fukui.github.io/line-rw/LineReader.js";
 
 class CSVReader {
   constructor(fn) {

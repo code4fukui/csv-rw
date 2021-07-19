@@ -1,9 +1,8 @@
+import { LineWriter } from "https://code4fukui.github.io/line-rw/LineWriter.js";
+
 class CSVWriter {
   constructor(fn) {
-    this.f = null;
-    this.fn = fn;
-    this.textencoder = new TextEncoder();
-    this.eof = false;
+    this.w = new LineWriter(fn);
   }
   async writeRecord(line, head) {
     if (head) {
@@ -16,13 +15,7 @@ class CSVWriter {
     await this._writeRecord(line);
   }
   async _writeRecord(line) {
-    if (this.eof) {
-      throw new Error("closed");
-    }
-    if (!this.f) {
-      this.f = await Deno.open(this.fn,  { write: true, create: true });
-      await this.f.write(this.textencoder.encode("\ufeff"));
-    }
+    let bom = this.w.f == null ? "\ufeff" : "";
     const s2 = [];
     for (let j = 0; j < line.length; j++) {
       const v = line[j];
@@ -40,14 +33,10 @@ class CSVWriter {
         s2.push(v);
       }
     }
-    await this.f.write(this.textencoder.encode(s2.join(",") + "\n"));
+    await this.w.writeLine(bom + s2.join(","));
   }
   close() {
-    if (!this.f) {
-      return;
-    }
-    this.f.close();
-    this.eof = true;
+    this.w.close();
   }
 }
 
