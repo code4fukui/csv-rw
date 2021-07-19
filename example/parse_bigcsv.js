@@ -1,7 +1,7 @@
 import { CSV } from "https://js.sabae.cc/CSV.js";
 import { CSVReader } from "../CSVReader.js";
 
-const fn = "data_go_jp_format_mp3.csv"
+const fn = "data_go_jp_format_mp3.csv";
 
 const r = new CSVReader(fn);
 let cnt = 0;

@@ -1,6 +1,6 @@
 import { LineReader } from "../LineReader.js";
 
-const fn = "data_go_jp_format_mp3.csv"
+const fn = "data_go_jp_format_mp3.csv";
 
 //import { CSV } from "https://js.sabae.cc/CSV.js";
 //console.log((await CSV.fetch(fn)).length);

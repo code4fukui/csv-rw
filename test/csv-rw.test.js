@@ -16,5 +16,8 @@ Deno.test("test", async () => {
   r.close();
 });
 Deno.test("test2", async () => {
-  t.assertEquals(await Deno.readTextFile("test.csv"), "name,value\nabc,123\ndef,456\n");
+  t.assertEquals(
+    await Deno.readTextFile("test.csv"),
+    "name,value\nabc,123\ndef,456\n",
+  );
 });

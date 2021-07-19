@@ -1,4 +1,4 @@
-const fn = "data_go_jp_format_mp3.csv"
+const fn = "data_go_jp_format_mp3.csv";
 const f = await Deno.open(fn);
 const bufsize = 1024 * 16;
 // 読むだけ、154msec, bufsize最大16384 Deno 1.12.0
@@ -18,4 +18,3 @@ for (;;) {
 }
 console.log(cnt);
 console.log(performance.now() - t0);
-

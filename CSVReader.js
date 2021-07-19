@@ -56,7 +56,7 @@ class CSVReader {
       }
       if (st === 0) {
         if (c === "\n") {
-          throw new Error("illegal n")
+          throw new Error("illegal n");
         } else if (c == ",") {
           line.push("");
         } else if (c == '"') {
@@ -68,7 +68,7 @@ class CSVReader {
         }
       } else if (st === 1) {
         if (c === "\n") {
-          throw new Error("illegal n")
+          throw new Error("illegal n");
         } else if (c === ",") {
           line.push(sb);
           sb = null;
@@ -91,7 +91,7 @@ class CSVReader {
           sb = null;
           st = 0;
         } else if (c === "\n") {
-          throw new Error("illegal n")
+          throw new Error("illegal n");
         }
       }
     }

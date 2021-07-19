@@ -12,4 +12,3 @@ for (;;) {
   cnt++;
 }
 console.log(cnt);
-
