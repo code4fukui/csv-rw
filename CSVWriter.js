@@ -1,8 +1,8 @@
 import { LineWriter } from "https://code4fukui.github.io/line-rw/LineWriter.js";
 
 class CSVWriter {
-  constructor(fn) {
-    this.w = new LineWriter(fn);
+  constructor(fn, encoder) {
+    this.w = new LineWriter(fn, encoder);
   }
   async writeRecord(line, head) {
     if (head) {

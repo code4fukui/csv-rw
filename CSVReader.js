@@ -1,9 +1,10 @@
 import { LineReader } from "https://code4fukui.github.io/line-rw/LineReader.js";
 
 class CSVReader {
-  constructor(fn) {
+  constructor(fn, decoder) {
     this.r = null;
     this.fn = fn;
+    this.decoder = decoder;
   }
   async readRecord(head) {
     const a = await this._readRecord();
@@ -21,7 +22,7 @@ class CSVReader {
   }
   async _readRecord() {
     if (this.r == null) {
-      this.r = new LineReader(this.fn);
+      this.r = new LineReader(this.fn, this.decoder);
     }
     const s = await this.r.readLine();
     if (s == null) {
