@@ -22,6 +22,15 @@ Deno.test("test2", async () => {
     "\ufeffname,value\nabc,123\ndef,456\n",
   );
 });
+Deno.test("by json", async () => {
+  const r = new CSVReader("test.csv");
+  const head = await r.readRecord();
+  t.assertEquals(head, ["name", "value"]);
+  t.assertEquals(await r.readRecord(head), { name: "abc", value: "123" });
+  t.assertEquals(await r.readRecord(head), { name: "def", value: "456" });
+  t.assertEquals(await r.readRecord(head), null);
+  r.close();
+});
 Deno.test("sjis", async () => {
   /*
   const w = new CSVWriter("test.csv");
