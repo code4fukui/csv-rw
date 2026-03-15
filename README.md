@@ -1,5 +1,7 @@
 # csv-rw
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 CSV File line-by-line read/write library for [Deno](https://deno.land/).
 
 ## Features

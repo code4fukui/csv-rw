@@ -43,3 +43,7 @@ deno test -A
 ## ブログ
 
 [Deno用 ファイル行単位読み書きライブラリ](https://fukuno.jig.jp/3281)
+
+## ライセンス
+
+MIT License
