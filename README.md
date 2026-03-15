@@ -1,18 +1,15 @@
 # csv-rw
 
-- Deno用 CSVファイルの行単位読み書きライブラリ
-- CSV File line-by-line read/write library for [Deno](https://deno.land/)
+CSV File line-by-line read/write library for [Deno](https://deno.land/).
 
-```js
-import { CSVWriter } from "https://code4fukui.github.io/csv-rw/CSVWriter.js";
+## Features
+- Provides `CSVReader` and `CSVWriter` classes for reading and writing CSV files
+- Supports parsing CSV files with quoted fields and line breaks
+- Allows reading CSV data into JavaScript objects with column names
 
-const w = new CSVWriter("test.csv");
-await w.writeRecord(["name", "value"]);
-await w.writeRecord(["abc", 123]);
-await w.writeRecord(["def", 456]);
-w.close();
-```
+## Usage
 
+### Reading a CSV file
 ```js
 import { CSVReader } from "https://code4fukui.github.io/csv-rw/CSVReader.js";
 
@@ -27,13 +24,22 @@ for (;;) {
 r.close();
 ```
 
-## test
+### Writing a CSV file
+```js
+import { CSVWriter } from "https://code4fukui.github.io/csv-rw/CSVWriter.js";
 
+const w = new CSVWriter("test.csv");
+await w.writeRecord(["name", "value"]);
+await w.writeRecord(["abc", 123]);
+await w.writeRecord(["def", 456]);
+w.close();
+```
+
+## Testing
 ```bash
 cd test
 deno test -A
 ```
 
-## blog
-
-[Deno用 ファイル行単位読み書きライブラリ](https://fukuno.jig.jp/3281)
+## License
+MIT License
